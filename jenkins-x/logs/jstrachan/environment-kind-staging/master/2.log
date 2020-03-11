@@ -1,0 +1,83 @@
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-credential-initializer-5pdfs[0m
+{"level":"warn","ts":1583931382.0564818,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583931382.0607743,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-27684[0m
+{"level":"warn","ts":1583931383.6625748,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583931383.6859071,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-git-source-jstrachan-environment-kind-stag-dm7vq-l8wvg[0m
+{"level":"warn","ts":1583931408.164172,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583931409.4838665,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/environment-kind-staging.git @ v0.0.3 in path /workspace/source"}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+disabling ** step verify preinstall as using a local environment
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-generate-helmfile[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-helmfile-system[0m
+Adding repo jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+
+Updating repo
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "jenkins-x" chart repository
+Update Complete. ⎈ Happy Helming!⎈ 
+
+Affected releases are:
+  empty (jenkins-x/empty) UPDATED
+
+Upgrading release=empty, chart=jenkins-x/empty
+Listing releases matching ^empty$
+Release "empty" has been upgraded. Happy Helming!
+NAME: empty
+LAST DEPLOYED: Wed Mar 11 12:59:12 2020
+NAMESPACE: **-staging
+STATUS: deployed
+REVISION: 2
+TEST SUITE: None
+
+empty	**-staging	2       	2020-03-11 12:59:12.5517252 +0000 UTC	deployed	empty-0.0.3	           
+
+
+UPDATED RELEASES:
+NAME    CHART             VERSION
+empty   jenkins-x/empty     0.0.3
+
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-verify-ingress[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-dm7vq-2[0m stage [32mrelease[0m and container [32mstep-helmfile-apps[0m
+Adding repo jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+
+Updating repo
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "jenkins-x" chart repository
+Update Complete. ⎈ Happy Helming!⎈ 
+
+Affected releases are:
+  nodey430 (jenkins-x/nodey430) UPDATED
+
+Upgrading release=nodey430, chart=jenkins-x/nodey430
+
+FAILED RELEASES:
+NAME
+nodey430
+in ./helmfile.yaml: failed processing release nodey430: helm exited with status 1:
+  Error: failed to download "jenkins-x/nodey430" (hint: running `helm repo update` may help)
+[31m
+Pipeline failed on stage 'release' : container 'step-helmfile-apps'. The execution of the pipeline has stopped.[0m
