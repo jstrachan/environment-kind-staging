@@ -1,3 +1,6 @@
 apps:
-- name: jenkins-x/nodey430
+- name: dev/nodey430
   version: 0.0.6
+repositories:
+- name: dev
+  url: http://bucketrepo-jx.192.168.1.64.nip.io
