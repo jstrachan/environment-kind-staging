@@ -30,8 +30,9 @@ environments:
 gitops: true
 helmfile: true
 ingress:
-  domain: ""
+  domain: 34.76.166.42.nip.io
   externalDNS: false
+  ignoreLoadBalancer: true
   namespaceSubDomain: -jx-staging.
   tls:
     email: ""
