@@ -1,0 +1,86 @@
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-credential-initializer-jwdxf[0m
+{"level":"warn","ts":1583918283.9903893,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583918283.9908175,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-f2572[0m
+{"level":"warn","ts":1583918284.777635,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583918284.778765,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-git-source-jstrachan-environment-kind-stag-6qvdc-75mrd[0m
+{"level":"warn","ts":1583918755.1756685,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583918758.9922235,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/environment-kind-staging.git @ v0.0.1 in path /workspace/source"}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+disabling ** step verify preinstall as using a local environment
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-generate-helmfile[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-helmfile-system[0m
+Adding repo jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+
+Adding repo zloeber git+https://github.com/rawlingsj/helm-namespace@chart
+"zloeber" has been added to your repositories
+
+Updating repo
+Hang tight while we grab the latest from your chart repositories...
+...Successfully got an update from the "zloeber" chart repository
+...Successfully got an update from the "jenkins-x" chart repository
+Update Complete. ⎈ Happy Helming!⎈ 
+
+Affected releases are:
+  empty (jenkins-x/empty) UPDATED
+  namespace-**-staging (zloeber/namespace) UPDATED
+
+Upgrading release=namespace-**-staging, chart=zloeber/namespace
+Release "namespace-**-staging" does not exist. Installing it now.
+NAME: namespace-**-staging
+LAST DEPLOYED: Wed Mar 11 09:27:20 2020
+NAMESPACE: **
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+Listing releases matching ^namespace-**-staging$
+namespace-**-staging	**       	1       	2020-03-11 09:27:20.1370228 +0000 UTC	deployed	namespace-0.1.0	0.1.0      
+
+Upgrading release=empty, chart=jenkins-x/empty
+Release "empty" does not exist. Installing it now.
+NAME: empty
+LAST DEPLOYED: Wed Mar 11 09:27:39 2020
+NAMESPACE: **-staging
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+
+Listing releases matching ^empty$
+empty	**-staging	1       	2020-03-11 09:27:39.441231 +0000 UTC	deployed	empty-0.0.3	           
+
+
+UPDATED RELEASES:
+NAME                   CHART               VERSION
+namespace-**-staging   zloeber/namespace     0.1.0
+empty                  jenkins-x/empty       0.0.3
+
+
+Showing logs for build [32mjstrachan-environment-kind-stag-6qvdc-1[0m stage [32mrelease[0m and container [32mstep-verify-ingress[0m
+Waiting to find the external host name of the ingress controller Service in namespace nginx with name nginx-ingress-controller
+If you are installing Jenkins X on premise you may want to use the '--on-premise' flag or specify the '--external-ip' flags. See: https://jenkins-x.io/getting-started/install-on-cluster/#installing-jenkins-x-on-premise
+No domain flag provided so using default  to generate Ingress rules
+waiting for external Host on the ingress service nginx-ingress-controller in namespace nginx ...
+error: failed to discover the Ingress domain: getting a domain for ingress service nginx/nginx-ingress-controller: Timed out after 5m0s, last error: %!s(<nil>)
+[31m
+Pipeline failed on stage 'release' : container 'step-verify-ingress'. The execution of the pipeline has stopped.[0m
