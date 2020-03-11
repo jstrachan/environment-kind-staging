@@ -1,6 +1,1 @@
-apps:
-- name: dev/nodey430
-  version: 0.0.6
-repositories:
-- name: dev
-  url: http://bucketrepo/bucketrepo/charts
+defaultNamespace: ""
