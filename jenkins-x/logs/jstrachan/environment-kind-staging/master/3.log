@@ -1,0 +1,39 @@
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-credential-initializer-94fbz[0m
+{"level":"warn","ts":1583931988.4574144,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583931988.472473,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-working-dir-initializer-bvkgn[0m
+{"level":"warn","ts":1583931989.600326,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1583931989.6096792,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-git-source-jstrachan-environment-kind-stag-9w7lt-ntwzb[0m
+{"level":"warn","ts":1583931998.4810233,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1583931999.8083935,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/*********/environment-kind-staging.git @ v0.0.4 in path /workspace/source"}
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-validate-git[0m
+Git configured for user: jenkins-x-bot and email jenkins-x@googlegroups.com
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-verify-preinstall[0m
+disabling ** step verify preinstall as using a local environment
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-install-jx-crds[0m
+Jenkins X CRDs upgraded with success
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-generate-helmfile[0m
+
+Showing logs for build [32mjstrachan-environment-kind-stag-9w7lt-3[0m stage [32mrelease[0m and container [32mstep-helmfile-system[0m
+Adding repo dev http://bucketrepo-**.192.168.1.64.nip.io
+Adding repo jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+
+in ./helmfile.yaml: helm exited with status 1:
+  Error: looks like "http://bucketrepo-**.192.168.1.64.nip.io" is not a valid chart repository or cannot be reached: Get http://bucketrepo-**.192.168.1.64.nip.io/index.yaml: EOF
+[31m
+Pipeline failed on stage 'release' : container 'step-helmfile-system'. The execution of the pipeline has stopped.[0m
